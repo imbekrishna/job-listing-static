@@ -29,8 +29,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Job Listing](https://job-listing.pages.dev/)
+- Live Site URL: [Github Repo](https://github.com/imbekrishna/job-listing)
 
 ## My process
 

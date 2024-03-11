@@ -1,9 +1,27 @@
 import { Job } from "../utils/types";
+import { useSearchParams } from "react-router-dom";
 
 const JobCard = ({ job }: { job: Job }) => {
+  const [params, setSearchParams] = useSearchParams();
+
+  const handleFilterChange = (key: string, value: string) => {
+    const values = new Set(params.get("tag")?.split(","));
+
+    setSearchParams((prevParams) => {
+      // const last = prevParams.get(key);
+      if (value === null || value === "") {
+        prevParams.delete(key);
+      } else {
+        values?.add(value);
+        prevParams.set(key, Array.from(values).toString());
+      }
+      return prevParams;
+    });
+  };
+
   return (
     <div
-      className={`shadow-custom relative flex w-full max-w-screen-lg flex-col gap-3 rounded-md ${job.featured ? "border-l-[5px] border-l-primary" : ""} bg-white p-5 lg:flex-row lg:items-center lg:gap-6 lg:p-8`}
+      className={`relative flex w-full max-w-screen-lg flex-col gap-3 rounded-md shadow-custom ${job.featured ? "border-l-[5px] border-l-primary" : ""} bg-white p-5 lg:flex-row lg:items-center lg:gap-6 lg:p-8`}
     >
       <img
         src={job.logo}
@@ -25,25 +43,43 @@ const JobCard = ({ job }: { job: Job }) => {
           )}
         </div>
         <p className="text-lg font-bold">{job.position}</p>
-        <div className="text-dGCyan flex items-center gap-3 font-bold">
+        <div className="flex items-center gap-3 font-bold text-dGCyan">
           <span>{job.postedAt}</span>
-          <span className="bg-dGCyan h-1 w-1 rounded-full"></span>
+          <span className="h-1 w-1 rounded-full bg-dGCyan"></span>
           <span>{job.contract}</span>
-          <span className="bg-dGCyan h-1 w-1 rounded-full"></span>
+          <span className="h-1 w-1 rounded-full bg-dGCyan"></span>
           <span>{job.location}</span>
         </div>
       </div>
-      <hr className="bg-dGCyan h-[2px] lg:hidden" />
+      <hr className="h-[2px] bg-dGCyan lg:hidden" />
       <div className="flex flex-wrap items-center gap-4 lg:ml-auto">
-        <span className="tag">{job.role}</span>
-        <span className="tag">{job.level}</span>
+        <span
+          className="tag"
+          onClick={() => handleFilterChange("tag", job.role)}
+        >
+          {job.role}
+        </span>
+        <span
+          className="tag"
+          onClick={() => handleFilterChange("tag", job.level)}
+        >
+          {job.level}
+        </span>
         {job.languages.map((lang) => (
-          <span key={lang} className="tag">
+          <span
+            key={lang}
+            className="tag"
+            onClick={() => handleFilterChange("tag", lang)}
+          >
             {lang}
           </span>
         ))}
         {job.tools.map((tool) => (
-          <span key={tool} className="tag">
+          <span
+            key={tool}
+            className="tag"
+            onClick={() => handleFilterChange("tag", tool)}
+          >
             {tool}
           </span>
         ))}

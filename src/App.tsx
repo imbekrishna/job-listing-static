@@ -1,17 +1,39 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import jobData from "../data.json";
 import JobCard from "./components/JobCard";
 import SearchBar from "./components/SearchBar";
+import { useSearchParams } from "react-router-dom";
+import { Job } from "./utils/types";
 
 const App = () => {
   const serachBarRef = useRef<HTMLDivElement | null>(null);
+
   const [divHeight, setDivHeight] = useState(0);
-  const [filters, useFilters] = useState([
-    "Frontend",
-    "Sass",
-    "React",
-    "Fullstack",
-  ]);
+  const [filters, setFilters] = useState<string[]>([]);
+  const [allJobs] = useState<Job[]>(jobData);
+  const [params] = useSearchParams();
+
+  const handleFilter = useCallback(function handleFilter(
+    jobs: Job[],
+    filters: string[] | undefined,
+  ) {
+    if (!filters) {
+      return jobData;
+    }
+
+    const filteredJobs = jobs.filter(({ role, level, languages, tools }) => {
+      const jobTags = [role, level, ...languages, ...tools];
+      return filters.every((tag) => jobTags.includes(tag));
+    });
+    return filteredJobs;
+  }, []);
+
+  const jobs = filters?.length < 1 ? jobData : handleFilter(allJobs, filters);
+
+  useEffect(() => {
+    const tags = params.get("tag")?.split(",");
+    setFilters(tags ?? []);
+  }, [params]);
 
   useEffect(() => {
     if (!serachBarRef.current) return;
@@ -33,15 +55,15 @@ const App = () => {
           className="hidden h-auto w-full md:block"
         />
       </div>
-      <div className="bg-background relative flex flex-col items-center px-6">
-        <SearchBar ref={serachBarRef} tags={filters} />
+      <div className="relative flex flex-col items-center bg-background px-6">
+        <SearchBar ref={serachBarRef} />
         <div
           className="flex w-full flex-1 flex-col items-center gap-14 md:pt-4 lg:gap-6"
           style={{
             marginTop: `${divHeight <= 75 ? divHeight : divHeight / 2 + 50}px`,
           }}
         >
-          {jobData.map((job) => (
+          {jobs.map((job) => (
             <JobCard key={job.id} job={job} />
           ))}
         </div>

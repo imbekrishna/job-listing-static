@@ -9,6 +9,7 @@ const App = () => {
   const serachBarRef = useRef<HTMLDivElement | null>(null);
 
   const [divHeight, setDivHeight] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(0);
   const [filters, setFilters] = useState<string[]>([]);
   const [allJobs] = useState<Job[]>(jobData);
   const [params] = useSearchParams();
@@ -39,7 +40,17 @@ const App = () => {
     if (!serachBarRef.current) return;
     const divHeight = serachBarRef.current.offsetHeight;
     setDivHeight(divHeight);
+    const { innerWidth: width } = window;
+    setWindowWidth(width);
   }, [filters]);
+
+  function getContainerMargin() {
+    if (windowWidth < 1024) {
+      return divHeight / 2 + 50;
+    } else {
+      return divHeight;
+    }
+  }
 
   return (
     <div className="h-screen">
@@ -55,12 +66,13 @@ const App = () => {
           className="hidden h-auto w-full md:block"
         />
       </div>
-      <div className="relative flex flex-col items-center bg-background px-6">
+      <div className="relative flex min-h-screen flex-col items-center bg-background px-6">
         <SearchBar ref={serachBarRef} />
         <div
           className="flex w-full flex-1 flex-col items-center gap-14 md:pt-4 lg:gap-6"
           style={{
-            marginTop: `${divHeight <= 75 ? divHeight : divHeight / 2 + 50}px`,
+            // marginTop: `${divHeight <= 75 ? divHeight : divHeight / 2 + 50}px`,
+            marginTop: `${getContainerMargin()}px`,
           }}
         >
           {jobs.map((job) => (

@@ -11,6 +11,18 @@ const SearchBar = forwardRef<Ref, Props>(function SearchBar(_, ref) {
   const [params, setParams] = useSearchParams();
   const tags = params.get("tag")?.split(",");
 
+  const removeFilter = (tag: string) => {
+    const removed = tags?.filter((i) => i !== tag).join(",");
+    setParams((prevParam) => {
+      if (!removed) {
+        prevParam.delete("tag");
+      } else {
+        prevParam.set("tag", removed);
+      }
+      return prevParam;
+    });
+  };
+
   return (
     <div
       ref={ref}
@@ -19,9 +31,20 @@ const SearchBar = forwardRef<Ref, Props>(function SearchBar(_, ref) {
       <div className="flex flex-1 flex-wrap gap-3">
         {tags &&
           tags.map((tag) => (
-            <span key={tag} className="tag">
-              {tag}
-            </span>
+            <div className="flex items-center justify-center overflow-clip rounded-md">
+              <span
+                key={tag}
+                className="bg-background p-2 font-bold text-primary"
+              >
+                {tag}
+              </span>
+              <div
+                className="flex cursor-pointer items-center justify-center self-stretch bg-black px-3"
+                onClick={() => removeFilter(tag)}
+              >
+                <img src="/src/assets/images/icon-remove.svg" alt="" />
+              </div>
+            </div>
           ))}
       </div>
       <span

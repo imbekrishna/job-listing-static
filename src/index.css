@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .tag {
-  @apply bg-background rounded-sm p-2 font-bold text-primary;
+  @apply cursor-pointer rounded-sm bg-background p-2 font-bold text-primary;
 }

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import jobData from "../data.json";
 import JobCard from "./components/JobCard";
-import SearchBar from "./components/SearchBar";
+import SearchBar from "./components/FilterTab";
 import { useSearchParams } from "react-router-dom";
 import { Job } from "./utils/types";
 

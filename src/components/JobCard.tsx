@@ -1,7 +1,8 @@
 import { Job } from "../utils/types";
 import { useSearchParams } from "react-router-dom";
+import { memo } from "react";
 
-const JobCard = ({ job }: { job: Job }) => {
+function JobCard({ job }: { job: Job }) {
   const [params, setSearchParams] = useSearchParams();
 
   const handleFilterChange = (key: string, value: string) => {
@@ -86,5 +87,7 @@ const JobCard = ({ job }: { job: Job }) => {
       </div>
     </div>
   );
-};
-export default JobCard;
+}
+
+const MemoJobCard = memo(JobCard);
+export default MemoJobCard;

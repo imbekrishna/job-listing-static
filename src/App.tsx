@@ -67,11 +67,10 @@ const App = () => {
         />
       </div>
       <div className="relative flex min-h-screen flex-col items-center bg-background px-6">
-        <SearchBar ref={serachBarRef} />
+        <SearchBar ref={serachBarRef} hidden={filters.length < 1} />
         <div
-          className="flex w-full flex-1 flex-col items-center gap-14 md:pt-4 lg:gap-6"
+          className="flex w-full flex-1 flex-col items-center gap-14 md:py-4 lg:gap-6"
           style={{
-            // marginTop: `${divHeight <= 75 ? divHeight : divHeight / 2 + 50}px`,
             marginTop: `${getContainerMargin()}px`,
           }}
         >

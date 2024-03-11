@@ -21,7 +21,7 @@ const JobCard = ({ job }: { job: Job }) => {
 
   return (
     <div
-      className={`relative flex w-full max-w-screen-lg flex-col gap-3 rounded-md shadow-custom ${job.featured ? "border-l-[5px] border-l-primary" : ""} bg-white p-5 lg:flex-row lg:items-center lg:gap-6 lg:p-8`}
+      className={`relative flex w-full max-w-screen-lg flex-col gap-3 rounded-md shadow-custom ${job.featured ? "border-l-[5px] border-l-primary" : ""} bg-white p-5 lg:flex-row lg:items-center lg:gap-6 lg:p-6 lg:px-8`}
     >
       <img
         src={job.logo}

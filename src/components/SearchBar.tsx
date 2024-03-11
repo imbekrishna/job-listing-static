@@ -3,11 +3,12 @@ import { useSearchParams } from "react-router-dom";
 
 interface Props {
   children?: ReactNode;
+  hidden: boolean;
 }
 
 export type Ref = HTMLDivElement;
 
-const SearchBar = forwardRef<Ref, Props>(function SearchBar(_, ref) {
+const SearchBar = forwardRef<Ref, Props>(function SearchBar(props, ref) {
   const [params, setParams] = useSearchParams();
   const tags = params.get("tag")?.split(",");
 
@@ -26,7 +27,7 @@ const SearchBar = forwardRef<Ref, Props>(function SearchBar(_, ref) {
   return (
     <div
       ref={ref}
-      className="absolute top-0 mx-auto flex w-[calc(100%_-_2.5rem)] -translate-y-1/2 items-center rounded-md bg-white px-6 py-4 shadow-custom lg:max-w-screen-lg"
+      className={`${props.hidden ? "invisible" : "visible"} absolute top-0 mx-auto flex w-[calc(100%_-_2.5rem)] -translate-y-1/2 items-center rounded-md bg-white px-6 py-4 shadow-custom lg:max-w-screen-lg`}
     >
       <div className="flex flex-1 flex-wrap gap-3">
         {tags &&

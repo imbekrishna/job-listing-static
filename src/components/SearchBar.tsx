@@ -32,7 +32,10 @@ const SearchBar = forwardRef<Ref, Props>(function SearchBar(props, ref) {
       <div className="flex flex-1 flex-wrap gap-3">
         {tags &&
           tags.map((tag) => (
-            <div className="flex items-center justify-center overflow-clip rounded-md">
+            <div
+              key={tag}
+              className="flex items-center justify-center overflow-clip rounded-md"
+            >
               <span
                 key={tag}
                 className="bg-background p-2 font-bold text-primary"

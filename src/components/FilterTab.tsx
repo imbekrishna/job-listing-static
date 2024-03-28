@@ -1,5 +1,6 @@
 import { ReactNode, forwardRef } from "react";
 import { useSearchParams } from "react-router-dom";
+import removeIcon from "../assets/images/icon-remove.svg";
 
 interface Props {
   children?: ReactNode;
@@ -46,7 +47,7 @@ const SearchBar = forwardRef<Ref, Props>(function SearchBar(props, ref) {
                 className="flex cursor-pointer items-center justify-center self-stretch bg-black px-3"
                 onClick={() => removeFilter(tag)}
               >
-                <img src="/src/assets/images/icon-remove.svg" alt="" />
+                <img src={removeIcon} alt="" />
               </div>
             </div>
           ))}

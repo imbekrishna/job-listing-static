@@ -5,6 +5,9 @@ import SearchBar from "./components/FilterTab";
 import { useSearchParams } from "react-router-dom";
 import { Job } from "./utils/types";
 
+import bgHeaderDesktop from "./assets/images/bg-header-desktop.svg";
+import bgHeaderMobile from "./assets/images/bg-header-mobile.svg";
+
 const App = () => {
   const serachBarRef = useRef<HTMLDivElement | null>(null);
 
@@ -53,17 +56,13 @@ const App = () => {
   }
 
   return (
-    <div className="h-screen">
+    <div className="min-h-screen">
       <div className="bg-primary">
+        <img src={bgHeaderMobile} alt="" className="h-full w-full md:hidden" />
         <img
-          src="/src/assets/images/bg-header-mobile.svg"
+          src={bgHeaderDesktop}
           alt=""
-          className="h-auto w-full md:hidden"
-        />
-        <img
-          src="/src/assets/images/bg-header-desktop.svg"
-          alt=""
-          className="hidden h-auto w-full md:block"
+          className="hidden h-full w-full md:block"
         />
       </div>
       <div className="relative flex min-h-screen flex-col items-center bg-background px-6">

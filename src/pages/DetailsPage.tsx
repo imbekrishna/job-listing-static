@@ -23,10 +23,18 @@ const DetailsPage = () => {
         <span className="h-1 w-1 rounded-full bg-dGCyan"></span>
         <span>{job.location}</span>
       </div>
-      <h1 className="text-3xl font-semibold">{job.position}</h1>
-      <p className="text-lg text-primary">
-        {job.role} | {job.level}
-      </p>
+      <div className="flex items-end justify-between md:items-start">
+        <div className="flex flex-col gap-2">
+          <h1 className="text-3xl font-semibold">{job.position}</h1>
+          <p className="text-lg text-primary">
+            {job.role} | {job.level}
+          </p>
+        </div>
+        <div className="flex flex-col items-center gap-2">
+          <img src={job.logo} alt="" className="aspect-square w-14" />
+          <p>{job.company}</p>
+        </div>
+      </div>
 
       <div className="mt-2">
         <p className="text-xl font-semibold">About company</p>

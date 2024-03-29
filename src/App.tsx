@@ -10,6 +10,7 @@ const App = () => {
       <Route Component={Layout}>
         <Route path="/" Component={HomePage} />
         <Route path="/new" Component={AddJobForm} />
+        <Route path="/edit" Component={AddJobForm} />
         <Route path="/details/:jobId" Component={DetailsPage} />
       </Route>
     </Routes>

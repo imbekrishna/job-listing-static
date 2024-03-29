@@ -1,6 +1,8 @@
 import { Job } from "../utils/types";
 import { Link, useSearchParams } from "react-router-dom";
 import { memo } from "react";
+import { getTagLabel } from "../utils/helpers";
+import { CONTRACT, LANGUAGES, LEVEL, SKILLS } from "../utils/constants";
 
 function JobCard({ job }: { job: Job }) {
   const [params, setSearchParams] = useSearchParams();
@@ -48,7 +50,7 @@ function JobCard({ job }: { job: Job }) {
           <span>{job.postedAt}</span>
           {/* TODO: Refactor the separator */}
           <span className="h-1 w-1 rounded-full bg-dGCyan"></span>
-          <span>{job.contract}</span>
+          <span> {getTagLabel(CONTRACT, job.contract)}</span>
           <span className="h-1 w-1 rounded-full bg-dGCyan"></span>
           <span>{job.location}</span>
         </div>
@@ -67,7 +69,7 @@ function JobCard({ job }: { job: Job }) {
             className="tag"
             onClick={() => handleFilterChange("tag", job.level)}
           >
-            {job.level}
+            {getTagLabel(LEVEL, job.level)}
           </span>
           {job.languages.map((lang) => (
             <span
@@ -75,20 +77,20 @@ function JobCard({ job }: { job: Job }) {
               className="tag"
               onClick={() => handleFilterChange("tag", lang)}
             >
-              {lang}
+              {getTagLabel(LANGUAGES, lang)}
             </span>
           ))}
-          {job.skills.map((tool) => (
+          {job.skills.map((skill) => (
             <span
-              key={tool}
+              key={skill}
               className="tag"
-              onClick={() => handleFilterChange("tag", tool)}
+              onClick={() => handleFilterChange("tag", skill)}
             >
-              {tool}
+              {getTagLabel(SKILLS, skill)}
             </span>
           ))}
         </div>
-        <Link to={`/details/${job.id}`} className="btn-primary">
+        <Link to={`/details/${job.id}`} className="btn primary">
           View Details
         </Link>
       </div>

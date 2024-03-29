@@ -6,6 +6,14 @@
   @apply cursor-pointer rounded-sm bg-background p-2 font-bold text-primary;
 }
 
-.btn-primary {
-  @apply cursor-pointer rounded-sm bg-primary p-2 text-center font-bold text-background;
+.btn {
+  @apply cursor-pointer rounded-sm p-2 text-center font-bold;
+}
+
+.btn.primary {
+  @apply bg-primary text-background;
+}
+
+.btn.secondary {
+  @apply border-2 border-primary bg-transparent text-primary;
 }

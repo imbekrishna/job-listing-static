@@ -7,12 +7,15 @@
     "featured": true,
     "position": "Senior Frontend Developer",
     "role": "Frontend",
-    "level": "Senior",
+    "level": "senior",
     "postedAt": "1d ago",
-    "contract": "Full Time",
+    "contract": "full_time",
     "location": "USA Only",
-    "languages": ["HTML", "CSS", "JavaScript"],
-    "skills": []
+    "languages": ["html", "css", "javaScript"],
+    "skills": [],
+    "aboutCompany": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis ullam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asperiores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque.Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis uLorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis ullam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asperiores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque.llam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asLorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis ullam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asperiores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque.periores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque.",
+    "aboutPosition": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis ullam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asperiores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque.",
+    "additionalInfo": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis ullam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asperiores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque."
   },
   {
     "id": 2,
@@ -22,12 +25,15 @@
     "featured": true,
     "position": "Fullstack Developer",
     "role": "Fullstack",
-    "level": "Midweight",
+    "level": "midweight",
     "postedAt": "1d ago",
-    "contract": "Part Time",
+    "contract": "part_time",
     "location": "Remote",
-    "languages": ["Python"],
-    "skills": ["React"]
+    "languages": ["python"],
+    "skills": ["fullstack"],
+    "aboutCompany": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis ullam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asperiores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque.",
+    "aboutPosition": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis ullam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asperiores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque.",
+    "additionalInfo": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis ullam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asperiores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque."
   },
   {
     "id": 3,
@@ -37,12 +43,15 @@
     "featured": false,
     "position": "Junior Frontend Developer",
     "role": "Frontend",
-    "level": "Junior",
+    "level": "junior",
     "postedAt": "2d ago",
-    "contract": "Part Time",
+    "contract": "part_time",
     "location": "USA Only",
-    "languages": ["JavaScript"],
-    "skills": ["React", "Sass"]
+    "languages": ["javaScript"],
+    "skills": ["fullstack", "restful_apis"],
+    "aboutCompany": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis ullam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asperiores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque.",
+    "aboutPosition": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis ullam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asperiores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque.",
+    "additionalInfo": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis ullam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asperiores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque."
   },
   {
     "id": 4,
@@ -52,12 +61,15 @@
     "featured": false,
     "position": "Junior Frontend Developer",
     "role": "Frontend",
-    "level": "Junior",
+    "level": "junior",
     "postedAt": "5d ago",
-    "contract": "Contract",
+    "contract": "contract",
     "location": "USA Only",
-    "languages": ["CSS", "JavaScript"],
-    "skills": []
+    "languages": ["css", "javaScript"],
+    "skills": ["responsive_web_design"],
+    "aboutCompany": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis ullam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asperiores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque.",
+    "aboutPosition": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis ullam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asperiores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque.",
+    "additionalInfo": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis ullam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asperiores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque."
   },
   {
     "id": 5,
@@ -67,12 +79,15 @@
     "featured": false,
     "position": "Software Engineer",
     "role": "Fullstack",
-    "level": "Midweight",
+    "level": "midweight",
     "postedAt": "1w ago",
-    "contract": "Full Time",
+    "contract": "full_time",
     "location": "Worldwide",
-    "languages": ["JavaScript", "Ruby"],
-    "skills": ["Sass"]
+    "languages": ["javaScript", "ruby"],
+    "skills": ["sql", "nosql"],
+    "aboutCompany": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis ullam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asperiores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque.",
+    "aboutPosition": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis ullam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asperiores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque.",
+    "additionalInfo": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis ullam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asperiores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque."
   },
   {
     "id": 6,
@@ -82,12 +97,15 @@
     "featured": false,
     "position": "Junior Backend Developer",
     "role": "Backend",
-    "level": "Junior",
+    "level": "junior",
     "postedAt": "2w ago",
-    "contract": "Full Time",
+    "contract": "full_time",
     "location": "UK Only",
-    "languages": ["Ruby"],
-    "skills": ["RoR"]
+    "languages": ["ruby"],
+    "skills": ["sql", "nosql", "version_control"],
+    "aboutCompany": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis ullam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asperiores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque.",
+    "aboutPosition": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis ullam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asperiores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque.",
+    "additionalInfo": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis ullam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asperiores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque."
   },
   {
     "id": 7,
@@ -97,12 +115,15 @@
     "featured": false,
     "position": "Junior Developer",
     "role": "Frontend",
-    "level": "Junior",
+    "level": "junior",
     "postedAt": "2w ago",
-    "contract": "Full Time",
+    "contract": "full_time",
     "location": "Worldwide",
-    "languages": ["HTML", "JavaScript"],
-    "skills": ["Sass"]
+    "languages": ["html", "javaScript"],
+    "skills": ["nosql"],
+    "aboutCompany": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis ullam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asperiores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque.",
+    "aboutPosition": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis ullam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asperiores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque.",
+    "additionalInfo": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis ullam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asperiores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque."
   },
   {
     "id": 8,
@@ -112,12 +133,15 @@
     "featured": false,
     "position": "Junior Frontend Developer",
     "role": "Frontend",
-    "level": "Junior",
+    "level": "junior",
     "postedAt": "2w ago",
-    "contract": "Full Time",
+    "contract": "full_time",
     "location": "USA Only",
-    "languages": ["JavaScript"],
-    "skills": ["Vue", "Sass"]
+    "languages": ["javaScript"],
+    "skills": ["vue", "sql"],
+    "aboutCompany": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis ullam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asperiores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque.",
+    "aboutPosition": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis ullam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asperiores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque.",
+    "additionalInfo": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis ullam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asperiores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque."
   },
   {
     "id": 9,
@@ -127,12 +151,15 @@
     "featured": false,
     "position": "Full Stack Engineer",
     "role": "Fullstack",
-    "level": "Midweight",
+    "level": "midweight",
     "postedAt": "3w ago",
-    "contract": "Full Time",
+    "contract": "full_time",
     "location": "Worldwide",
-    "languages": ["JavaScript", "Python"],
-    "skills": ["Django"]
+    "languages": ["javaScript", "python"],
+    "skills": [],
+    "aboutCompany": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis ullam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asperiores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque.",
+    "aboutPosition": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis ullam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asperiores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque.",
+    "additionalInfo": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis ullam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asperiores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque."
   },
   {
     "id": 10,
@@ -142,11 +169,14 @@
     "featured": false,
     "position": "Front-end Dev",
     "role": "Frontend",
-    "level": "Junior",
+    "level": "junior",
     "postedAt": "1mo ago",
-    "contract": "Part Time",
+    "contract": "part_time",
     "location": "Worldwide",
-    "languages": ["JavaScript"],
-    "skills": ["React", "Sass"]
+    "languages": ["javaScript"],
+    "skills": ["react", "django"],
+    "aboutCompany": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis ullam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asperiores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque.",
+    "aboutPosition": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis ullam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asperiores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque.",
+    "additionalInfo": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officiis deleniti a explicabo nobis ullam dolorum tempora ipsa vel perferendis. Voluptatem, cum commodi doloribus consequatur fuga asperiores expedita quae ex velit fugit ipsa reiciendis cumque soluta delectus qui tempora neque."
   }
 ]

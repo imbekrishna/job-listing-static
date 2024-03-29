@@ -12,4 +12,7 @@ export interface Job {
   location: string;
   languages: string[];
   skills: string[];
+  aboutCompany: string;
+  aboutPosition: string;
+  additionalInfo?: string;
 }

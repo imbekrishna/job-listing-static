@@ -74,6 +74,7 @@ export const CustomMultiSelect = ({
               "rounded",
               "border-solid",
               "border",
+              "px-2",
               isFocused ? "hover:border-primary" : "hover:border-neutral-300",
             ),
           dropdownIndicator: ({ isFocused }) =>
@@ -108,22 +109,16 @@ export const CustomMultiSelect = ({
             ),
           menuList: () => clsx("py-1"),
           // menuPortal: () => clsx(),
-          multiValue: () => clsx("bg-neutral-100", "rounded-sm", "m-0.5"),
+          multiValue: () => clsx("bg-primary", "rounded-sm", "m-0.5", "px-0.5"),
           multiValueLabel: () =>
-            clsx(
-              "rounded-sm",
-              "text-neutral-800",
-              "text-sm",
-              "p-[3]",
-              "pl-[6]",
-            ),
+            clsx("rounded-sm", "text-white", "text-sm", "px-2", "py-0.5"),
           multiValueRemove: ({ isFocused }) =>
             clsx(
               "rounded-sm",
-              isFocused && "bg-red-500",
+              isFocused && "bg-dGCyan",
               "px-1",
-              "hover:bg-red-500",
-              "hover:text-red-800",
+              "hover:bg-dGCyan",
+              "hover:text-white",
             ),
           noOptionsMessage: () => clsx("text-neutral-400", "py-2", "px-3"),
           option: ({ isDisabled, isFocused, isSelected }) =>
@@ -137,7 +132,7 @@ export const CustomMultiSelect = ({
                 ? "text-neutral-200"
                 : isSelected
                   ? "text-white"
-                  : "text-inherit",
+                  : "text-vDGCyan",
               "py-2",
               "px-3",
               !isDisabled &&
@@ -145,9 +140,13 @@ export const CustomMultiSelect = ({
                   ? "active:bg-primary active:text-white"
                   : "active:bg-primary active:text-white"),
             ),
-          placeholder: () => clsx("text-neutral-500", "mx-0.5"),
+          placeholder: () => clsx("text-neutral-500", "mx-0.5", "text-lg"),
           singleValue: ({ isDisabled }) =>
-            clsx(isDisabled ? "text-neutral-400" : "text-vDGCyan", "mx-0.5"),
+            clsx(
+              isDisabled ? "text-neutral-400" : "text-vDGCyan",
+              "mx-0.5",
+              "text-lg",
+            ),
           valueContainer: () => clsx("py-0.5", "px-2"),
         }}
       />

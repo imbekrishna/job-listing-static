@@ -78,7 +78,7 @@ function JobCard({ job }: { job: Job }) {
               {lang}
             </span>
           ))}
-          {job.tools.map((tool) => (
+          {job.skills.map((tool) => (
             <span
               key={tool}
               className="tag"

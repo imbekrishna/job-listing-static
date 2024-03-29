@@ -73,7 +73,7 @@ const DetailsPage = () => {
               {lang}
             </span>
           ))}
-          {job.tools.map((tool) => (
+          {job.skills.map((tool) => (
             <span
               key={tool}
               className="rounded-sm bg-primary px-2 py-1 font-medium text-white"

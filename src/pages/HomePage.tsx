@@ -22,8 +22,8 @@ const HomePage = () => {
       return jobData;
     }
 
-    const filteredJobs = jobs.filter(({ role, level, languages, tools }) => {
-      const jobTags = [role, level, ...languages, ...tools];
+    const filteredJobs = jobs.filter(({ role, level, languages, skills }) => {
+      const jobTags = [role, level, ...languages, ...skills];
       return filters.every((tag) => jobTags.includes(tag));
     });
     return filteredJobs;
@@ -55,7 +55,7 @@ const HomePage = () => {
     <>
       <SearchBar ref={serachBarRef} hidden={filters.length < 1} />
       <div
-        className="flex w-full flex-1 flex-col items-center gap-14 md:py-4 lg:gap-6"
+        className="mb-4 flex w-full flex-1 flex-col items-center gap-14 md:py-4 lg:gap-6"
         style={{
           marginTop: `${getContainerMargin()}px`,
         }}

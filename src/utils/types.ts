@@ -11,5 +11,5 @@ export interface Job {
   contract: string;
   location: string;
   languages: string[];
-  tools: string[];
+  skills: string[];
 }

@@ -12,7 +12,7 @@
     "contract": "Full Time",
     "location": "USA Only",
     "languages": ["HTML", "CSS", "JavaScript"],
-    "tools": []
+    "skills": []
   },
   {
     "id": 2,
@@ -27,7 +27,7 @@
     "contract": "Part Time",
     "location": "Remote",
     "languages": ["Python"],
-    "tools": ["React"]
+    "skills": ["React"]
   },
   {
     "id": 3,
@@ -42,7 +42,7 @@
     "contract": "Part Time",
     "location": "USA Only",
     "languages": ["JavaScript"],
-    "tools": ["React", "Sass"]
+    "skills": ["React", "Sass"]
   },
   {
     "id": 4,
@@ -57,7 +57,7 @@
     "contract": "Contract",
     "location": "USA Only",
     "languages": ["CSS", "JavaScript"],
-    "tools": []
+    "skills": []
   },
   {
     "id": 5,
@@ -72,7 +72,7 @@
     "contract": "Full Time",
     "location": "Worldwide",
     "languages": ["JavaScript", "Ruby"],
-    "tools": ["Sass"]
+    "skills": ["Sass"]
   },
   {
     "id": 6,
@@ -87,7 +87,7 @@
     "contract": "Full Time",
     "location": "UK Only",
     "languages": ["Ruby"],
-    "tools": ["RoR"]
+    "skills": ["RoR"]
   },
   {
     "id": 7,
@@ -102,7 +102,7 @@
     "contract": "Full Time",
     "location": "Worldwide",
     "languages": ["HTML", "JavaScript"],
-    "tools": ["Sass"]
+    "skills": ["Sass"]
   },
   {
     "id": 8,
@@ -117,7 +117,7 @@
     "contract": "Full Time",
     "location": "USA Only",
     "languages": ["JavaScript"],
-    "tools": ["Vue", "Sass"]
+    "skills": ["Vue", "Sass"]
   },
   {
     "id": 9,
@@ -132,7 +132,7 @@
     "contract": "Full Time",
     "location": "Worldwide",
     "languages": ["JavaScript", "Python"],
-    "tools": ["Django"]
+    "skills": ["Django"]
   },
   {
     "id": 10,
@@ -147,6 +147,6 @@
     "contract": "Part Time",
     "location": "Worldwide",
     "languages": ["JavaScript"],
-    "tools": ["React", "Sass"]
+    "skills": ["React", "Sass"]
   }
 ]

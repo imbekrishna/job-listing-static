@@ -5,3 +5,7 @@
 .tag {
   @apply cursor-pointer rounded-sm bg-background p-2 font-bold text-primary;
 }
+
+.btn-primary {
+  @apply cursor-pointer rounded-sm bg-primary p-2 text-center font-bold text-background;
+}

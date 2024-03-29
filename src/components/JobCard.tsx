@@ -1,5 +1,5 @@
 import { Job } from "../utils/types";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { memo } from "react";
 
 function JobCard({ job }: { job: Job }) {
@@ -46,6 +46,7 @@ function JobCard({ job }: { job: Job }) {
         <p className="text-lg font-bold">{job.position}</p>
         <div className="flex items-center gap-3 font-bold text-dGCyan">
           <span>{job.postedAt}</span>
+          {/* TODO: Refactor the separator */}
           <span className="h-1 w-1 rounded-full bg-dGCyan"></span>
           <span>{job.contract}</span>
           <span className="h-1 w-1 rounded-full bg-dGCyan"></span>
@@ -54,6 +55,7 @@ function JobCard({ job }: { job: Job }) {
       </div>
       <hr className="h-[2px] bg-dGCyan lg:hidden" />
       <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center lg:ml-auto lg:flex-col lg:items-end">
+        {/* TODO: Refactor this also */}
         <div className="flex flex-wrap items-center gap-4 lg:ml-auto">
           <span
             className="tag"
@@ -86,9 +88,9 @@ function JobCard({ job }: { job: Job }) {
             </span>
           ))}
         </div>
-        <button className="cursor-pointer rounded-sm bg-primary px-2 py-1 font-bold text-background">
+        <Link to={`/details/${job.id}`} className="btn-primary">
           View Details
-        </button>
+        </Link>
       </div>
     </div>
   );

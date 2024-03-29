@@ -53,37 +53,42 @@ function JobCard({ job }: { job: Job }) {
         </div>
       </div>
       <hr className="h-[2px] bg-dGCyan lg:hidden" />
-      <div className="flex flex-wrap items-center gap-4 lg:ml-auto">
-        <span
-          className="tag"
-          onClick={() => handleFilterChange("tag", job.role)}
-        >
-          {job.role}
-        </span>
-        <span
-          className="tag"
-          onClick={() => handleFilterChange("tag", job.level)}
-        >
-          {job.level}
-        </span>
-        {job.languages.map((lang) => (
+      <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center lg:ml-auto lg:flex-col lg:items-end">
+        <div className="flex flex-wrap items-center gap-4 lg:ml-auto">
           <span
-            key={lang}
             className="tag"
-            onClick={() => handleFilterChange("tag", lang)}
+            onClick={() => handleFilterChange("tag", job.role)}
           >
-            {lang}
+            {job.role}
           </span>
-        ))}
-        {job.tools.map((tool) => (
           <span
-            key={tool}
             className="tag"
-            onClick={() => handleFilterChange("tag", tool)}
+            onClick={() => handleFilterChange("tag", job.level)}
           >
-            {tool}
+            {job.level}
           </span>
-        ))}
+          {job.languages.map((lang) => (
+            <span
+              key={lang}
+              className="tag"
+              onClick={() => handleFilterChange("tag", lang)}
+            >
+              {lang}
+            </span>
+          ))}
+          {job.tools.map((tool) => (
+            <span
+              key={tool}
+              className="tag"
+              onClick={() => handleFilterChange("tag", tool)}
+            >
+              {tool}
+            </span>
+          ))}
+        </div>
+        <button className="cursor-pointer rounded-sm bg-primary px-2 py-1 font-bold text-background">
+          View Details
+        </button>
       </div>
     </div>
   );

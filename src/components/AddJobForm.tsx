@@ -5,8 +5,10 @@ import * as Yup from "yup";
 import { CONTRACT, LANGUAGES, LEVEL, SKILLS } from "../utils/constants";
 import CustomMultiSelect from "./MultiSelect";
 import { TextInput, TextArea } from "./FormikElements";
+import useAuthGuard from "../hooks/useAuthGuard";
 
 const AddJobForm = () => {
+  useAuthGuard();
   const navigate = useNavigate();
   const { state } = useLocation();
   const btnText = state ? "Update" : "Submit";

@@ -1,12 +1,15 @@
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { TextInput, CheckBox } from "../components/FormikElements";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { register, login } from "../api/auth";
+import { useCookies } from "react-cookie";
 
 const AuthPage = () => {
   const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
+  const [, setCookie] = useCookies(["finder_user"]);
 
   const btnText = isLogin ? "Login" : "Register";
   const toggleText = isLogin
@@ -44,7 +47,9 @@ const AuthPage = () => {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-background p-6 lg:px-14">
-      <p className="self-start font-serif text-3xl text-primary">Finder</p>
+      <Link to="/" className="self-start font-serif text-3xl text-primary">
+        Finder
+      </Link>
       <Formik
         initialValues={{
           name: "",
@@ -54,15 +59,16 @@ const AuthPage = () => {
           acceptedTerms: false,
         }}
         validationSchema={isLogin ? loginSchema : registerSchema}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            isLogin
-              ? console.log("login", values)
-              : console.log("register", values);
-            setSubmitting(false);
-            navigate("/");
-            return;
-          }, 400);
+        onSubmit={async (values, { setSubmitting }) => {
+          if (isLogin) {
+            const data = await login(values);
+            setCookie("finder_user", data.accessToken);
+          } else {
+            await register(values);
+          }
+          setSubmitting(false);
+          navigate("/");
+          return;
         }}
       >
         {({ isSubmitting }) => (

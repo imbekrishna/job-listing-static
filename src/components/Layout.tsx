@@ -1,9 +1,10 @@
 import { Link, Outlet } from "react-router-dom";
 import bgHeaderDesktop from "../assets/images/bg-header-desktop.svg";
 import bgHeaderMobile from "../assets/images/bg-header-mobile.svg";
+import useActiveUser from "../hooks/useActiveUser";
 
 const Layout = () => {
-  const loggedIn = false;
+  const user = useActiveUser();
   return (
     <div className="min-h-screen">
       <div className="bg-primary">
@@ -20,8 +21,8 @@ const Layout = () => {
           >
             Finder
           </Link>
-          {!loggedIn ? (
-            <Link to="/login" className="btn light ml-auto mr-8">
+          {!user ? (
+            <Link to="/auth" className="btn light ml-auto mr-8">
               Login
             </Link>
           ) : (

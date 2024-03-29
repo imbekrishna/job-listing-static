@@ -17,3 +17,7 @@
 .btn.secondary {
   @apply border-2 border-primary bg-transparent text-primary;
 }
+
+.btn.light {
+  @apply min-w-24 border-2 border-white bg-transparent text-white transition-colors hover:bg-white hover:text-primary;
+}

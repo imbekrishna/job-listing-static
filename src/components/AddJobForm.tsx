@@ -1,65 +1,10 @@
-import { Field, FieldHookConfig, Form, Formik, useField } from "formik";
-import { ClassAttributes, InputHTMLAttributes, ReactNode } from "react";
-import * as Yup from "yup";
+import { Field, Form, Formik } from "formik";
 import { useLocation, useNavigate } from "react-router-dom";
+import * as Yup from "yup";
 
-import CustomMultiSelect from "./MultiSelect";
 import { CONTRACT, LANGUAGES, LEVEL, SKILLS } from "../utils/constants";
-
-interface OtherProps {
-  children?: ReactNode;
-  label: string;
-}
-
-const TextInput = ({
-  label,
-  ...props
-}: OtherProps &
-  InputHTMLAttributes<HTMLInputElement> &
-  ClassAttributes<HTMLInputElement> &
-  FieldHookConfig<string>) => {
-  const [field, meta] = useField(props);
-  return (
-    <div className="flex flex-col gap-1">
-      <label className="text-lg text-primary" htmlFor={props.id || props.name}>
-        {label}
-      </label>
-      <input
-        className="rounded-sm p-2 indent-2 text-lg text-vDGCyan"
-        {...field}
-        {...props}
-      />
-      {meta.touched && meta.error ? (
-        <div className="text-red-500">{meta.error}</div>
-      ) : null}
-    </div>
-  );
-};
-
-const TextArea = ({
-  label,
-  ...props
-}: OtherProps &
-  InputHTMLAttributes<HTMLTextAreaElement> &
-  ClassAttributes<HTMLTextAreaElement> &
-  FieldHookConfig<string>) => {
-  const [field, meta] = useField(props);
-  return (
-    <div className="flex flex-col gap-1">
-      <label className="text-lg text-primary" htmlFor={props.id || props.name}>
-        {label}
-      </label>
-      <textarea
-        className="rounded-sm p-2 indent-2 text-lg text-vDGCyan"
-        {...field}
-        {...props}
-      />
-      {meta.touched && meta.error ? (
-        <div className="text-red-500">{meta.error}</div>
-      ) : null}
-    </div>
-  );
-};
+import CustomMultiSelect from "./MultiSelect";
+import { TextInput, TextArea } from "./FormikElements";
 
 const AddJobForm = () => {
   const navigate = useNavigate();
@@ -225,7 +170,10 @@ const AddJobForm = () => {
               className={`btn secondary ${isSubmitting && "bg-gray-400"}`}
               disabled={isSubmitting}
               type="submit"
-              onClick={() => navigate(-1)}
+              onClick={(e) => {
+                e.preventDefault();
+                navigate(-1);
+              }}
             >
               Cancel
             </button>

@@ -15,6 +15,7 @@ export default {
       },
       boxShadow: {
         custom: "0px 10px 13px -3px rgb(91,164,164, 0.25);",
+        allSides: "0px 0px 13px -3px rgb(91,164,164, 0.25);",
       },
     },
   },

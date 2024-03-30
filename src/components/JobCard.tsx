@@ -3,6 +3,10 @@ import { Link, useSearchParams } from "react-router-dom";
 import { memo } from "react";
 import { getTagLabel } from "../utils/helpers";
 import { CONTRACT, LANGUAGES, LEVEL, SKILLS } from "../utils/constants";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+
+dayjs.extend(relativeTime);
 
 function JobCard({ job }: { job: Job }) {
   const [params, setSearchParams] = useSearchParams();
@@ -22,6 +26,8 @@ function JobCard({ job }: { job: Job }) {
     });
   };
 
+  const parseTime = (timeString: string) => dayjs(timeString).fromNow(true);
+
   return (
     <div
       className={`relative flex w-full max-w-screen-lg flex-col gap-3 rounded-md shadow-custom ${job.featured ? "border-l-[5px] border-l-primary" : ""} bg-white p-5 lg:flex-row lg:items-center lg:gap-6 lg:p-6 lg:px-8`}
@@ -29,9 +35,9 @@ function JobCard({ job }: { job: Job }) {
       <img
         src={job.logo}
         alt=""
-        className="absolute -top-[32px] aspect-square w-16 lg:relative lg:top-0 lg:w-auto "
+        className="absolute -top-[32px] aspect-square w-16 rounded-full lg:relative lg:top-0 lg:w-auto lg:max-w-24 "
       />
-      <div className="flex flex-col gap-3 pt-6 lg:gap-2 lg:p-0">
+      <div className="flex flex-col gap-3 pt-6 lg:w-1/2 lg:gap-2 lg:p-0">
         <div className="flex items-center gap-2 font-bold">
           <span className="text-lg text-primary">{job.company}</span>
           {job.new && (
@@ -47,7 +53,7 @@ function JobCard({ job }: { job: Job }) {
         </div>
         <p className="text-lg font-bold">{job.position}</p>
         <div className="flex items-center gap-3 font-bold text-dGCyan">
-          <span>{job.postedAt}</span>
+          <span>{parseTime(job.postedAt)}</span>
           {/* TODO: Refactor the separator */}
           <span className="h-1 w-1 rounded-full bg-dGCyan"></span>
           <span> {getTagLabel(CONTRACT, job.contract)}</span>
@@ -56,9 +62,9 @@ function JobCard({ job }: { job: Job }) {
         </div>
       </div>
       <hr className="h-[2px] bg-dGCyan lg:hidden" />
-      <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center lg:ml-auto lg:flex-col lg:items-end">
+      <div className="flex flex-col justify-between gap-2 md:flex-row md:items-center lg:ml-auto lg:w-1/2 lg:flex-col lg:items-end">
         {/* TODO: Refactor this also */}
-        <div className="flex flex-wrap items-center gap-4 lg:ml-auto">
+        <div className="flex flex-wrap items-center gap-2 lg:ml-auto lg:justify-end">
           <span
             className="tag"
             onClick={() => handleFilterChange("tag", job.role)}

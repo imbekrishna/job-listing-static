@@ -4,9 +4,30 @@ import { CreateJob } from "../utils/types";
 
 const url = "http://localhost:3000";
 
+// TODO: Update error messages
+
 export const addNewJob = async (jobDetails: CreateJob) => {
   try {
     const res = await axios.post(`${url}/jobs`, jobDetails);
+    return res.data;
+  } catch (err) {
+    if (err instanceof AxiosError) {
+      if (!err?.response) {
+        toast.error("No Server Response");
+      } else if (err.response?.status === 400) {
+        toast.error("Invalid Username or Password");
+      } else if (err.response?.status === 401) {
+        toast.error("Unauthorized");
+      } else {
+        toast.error("Login Failed");
+      }
+    }
+  }
+};
+
+export const getAllJobs = async () => {
+  try {
+    const res = await axios.get(`${url}/jobs`);
     return res.data;
   } catch (err) {
     if (err instanceof AxiosError) {

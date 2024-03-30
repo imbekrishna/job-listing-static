@@ -1,4 +1,5 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
+import toast from "react-hot-toast";
 
 const url = "http://localhost:3000";
 
@@ -33,12 +34,23 @@ export const login = async ({
   email: string;
   password: string;
 }) => {
-  const res = await axios.post(`${url}/auth`, {
-    email,
-    password,
-  });
-
-  console.log(res.data);
-
-  return res.data;
+  try {
+    const res = await axios.post(`${url}/auth`, {
+      email,
+      password,
+    });
+    return res.data;
+  } catch (err) {
+    if (err instanceof AxiosError) {
+      if (!err?.response) {
+        toast.error("No Server Response");
+      } else if (err.response?.status === 400) {
+        toast.error("Invalid Username or Password");
+      } else if (err.response?.status === 401) {
+        toast.error("Unauthorized");
+      } else {
+        toast.error("Login Failed");
+      }
+    }
+  }
 };

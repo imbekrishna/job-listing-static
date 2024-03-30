@@ -62,7 +62,7 @@ const AuthPage = () => {
         onSubmit={async (values, { setSubmitting }) => {
           if (isLogin) {
             const data = await login(values);
-            setCookie("finder_user", data.accessToken);
+            setCookie("finder_user", data.accessToken, { sameSite: "lax" });
           } else {
             await register(values);
           }

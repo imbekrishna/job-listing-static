@@ -6,6 +6,7 @@ import { CONTRACT, LANGUAGES, LEVEL, SKILLS } from "../utils/constants";
 import CustomMultiSelect from "./MultiSelect";
 import { TextInput, TextArea } from "./FormikElements";
 import useAuthGuard from "../hooks/useAuthGuard";
+import { addNewJob } from "../api/jobs";
 
 const AddJobForm = () => {
   useAuthGuard();
@@ -65,17 +66,12 @@ const AddJobForm = () => {
             .min(50, "Minimum 50 chars required"),
           additionalInfo: Yup.string().min(10, "Minimum 10 chars required"),
         })}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            //   localStorage.setItem(
-            //     "superapp-user-data",
-            //     JSON.stringify(values, null, 2),
-            //   );
-            console.log(values);
-            setSubmitting(false);
-            navigate("/");
-            return;
-          }, 400);
+        onSubmit={async (values, { setSubmitting }) => {
+          setSubmitting(true);
+          const data = await addNewJob(values);
+          console.log(data);
+          setSubmitting(false);
+          navigate("/");
         }}
       >
         {({ isSubmitting }) => (

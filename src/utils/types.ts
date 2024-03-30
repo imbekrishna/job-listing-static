@@ -16,3 +16,5 @@ export interface Job {
   aboutPosition: string;
   additionalInfo?: string;
 }
+
+export interface CreateJob extends Omit<Job, "id" | "postedAt"> {}

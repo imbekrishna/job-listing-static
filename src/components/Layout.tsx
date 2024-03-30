@@ -1,6 +1,7 @@
 import { Link, Outlet } from "react-router-dom";
 import bgHeaderDesktop from "../assets/images/bg-header-desktop.svg";
 import bgHeaderMobile from "../assets/images/bg-header-mobile.svg";
+import logoutIcon from "../assets/images/logout.svg";
 import useActiveUser from "../hooks/useActiveUser";
 
 const Layout = () => {
@@ -26,8 +27,8 @@ const Layout = () => {
               Login
             </Link>
           ) : (
-            <>
-              <Link to="/new" className="btn light ml-auto mr-8">
+            <div className="flex items-center gap-x-4">
+              <Link to="/new" className="btn light ml-auto">
                 Add new
               </Link>
               <img
@@ -35,7 +36,10 @@ const Layout = () => {
                 className="aspect-square h-min w-12 rounded-md"
                 alt=""
               />
-            </>
+              <button onClick={user.logout}>
+                <img className="w-12" src={logoutIcon} alt="" />
+              </button>
+            </div>
           )}
         </div>
       </div>

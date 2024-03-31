@@ -4,12 +4,11 @@ import { TextInput, CheckBox } from "../components/FormikElements";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { register, login } from "../api/auth";
-import { useCookies } from "react-cookie";
+import Cookies from "js-cookie";
 
 const AuthPage = () => {
   const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
-  const [, setCookie] = useCookies(["finder_user"]);
 
   const btnText = isLogin ? "Login" : "Register";
   const toggleText = isLogin
@@ -62,7 +61,10 @@ const AuthPage = () => {
         onSubmit={async (values, { setSubmitting }) => {
           if (isLogin) {
             const data = await login(values);
-            setCookie("finder_user", data.accessToken, { sameSite: "lax" });
+            console.log(data);
+            Cookies.set("finder_user", JSON.stringify(data), {
+              sameSite: "lax",
+            });
           } else {
             await register(values);
           }

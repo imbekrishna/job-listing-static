@@ -6,7 +6,7 @@ import { CONTRACT, LANGUAGES, LEVEL, SKILLS } from "../utils/constants";
 import CustomMultiSelect from "./MultiSelect";
 import { TextInput, TextArea } from "./FormikElements";
 import useAuthGuard from "../hooks/useAuthGuard";
-import { addNewJob } from "../api/jobs";
+import { addNewJob, updateJob } from "../api/jobs";
 
 const AddJobForm = () => {
   useAuthGuard();
@@ -68,8 +68,13 @@ const AddJobForm = () => {
         })}
         onSubmit={async (values, { setSubmitting }) => {
           setSubmitting(true);
-          const data = await addNewJob(values);
-          console.log(data);
+          if (state) {
+            const data = await updateJob(state.id, values);
+            console.log(data);
+          } else {
+            const data = await addNewJob(values);
+            console.log(data);
+          }
           setSubmitting(false);
           navigate("/");
         }}

@@ -1,19 +1,33 @@
-import { Link, Navigate, useParams } from "react-router-dom";
-import jobData from "../../data.json";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { CONTRACT, LANGUAGES, LEVEL, SKILLS } from "../utils/constants";
 import { getTagLabel } from "../utils/helpers";
+import { getJobById } from "../api/jobs";
+import { useCallback, useEffect, useState } from "react";
+import { Job } from "../utils/types";
 
 const DetailsPage = () => {
+  const navigate = useNavigate();
   const { jobId } = useParams();
+  const [job, setJob] = useState<Job | undefined>();
+  const [loading, setLoading] = useState(false);
 
-  if (!jobId) {
-    return <Navigate to={"/"} />;
-  }
+  const fetchJobById = useCallback(async (id: string) => {
+    setLoading(true);
+    const data = await getJobById(id);
+    setJob(data);
+    console.log(data);
+    setLoading(false);
+  }, []);
 
-  const job = jobData.find((job) => job.id == +jobId);
+  useEffect(() => {
+    if (!jobId) {
+      return navigate("/");
+    }
+    fetchJobById(jobId);
+  }, [fetchJobById, jobId, navigate]);
 
-  if (!job) {
-    return <Navigate to={"/"} />;
+  if (loading || !job) {
+    return <h1>Loading</h1>;
   }
 
   return (

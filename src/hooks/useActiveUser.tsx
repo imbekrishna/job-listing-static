@@ -1,17 +1,16 @@
-import { useCookies } from "react-cookie";
+import Cookies from "js-cookie";
 
 const useActiveUser = () => {
-  const [cookies, , removeCookie] = useCookies(["finder_user"]);
+  const cookies = Cookies.get("finder_user");
+  const logout = () => Cookies.remove("finder_user");
 
-  const logout = () => removeCookie("finder_user");
-
-  if (!cookies.finder_user) {
+  if (!cookies) {
     return null;
   }
 
-  const { firstName, lastName, id, accessToken } = cookies.finder_user;
+  const userData = JSON.parse(cookies);
 
-  return { firstName, lastName, id, accessToken, logout };
+  return { ...userData, logout };
 };
 
 export default useActiveUser;

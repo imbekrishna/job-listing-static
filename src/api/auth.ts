@@ -1,5 +1,6 @@
 import axios, { AxiosError } from "axios";
 import toast from "react-hot-toast";
+import Cookies from "js-cookie";
 
 const url = "http://localhost:3000";
 
@@ -39,7 +40,10 @@ export const login = async ({
       email,
       password,
     });
-    return res.data;
+
+    Cookies.set("finder_user", JSON.stringify(res.data), {
+      sameSite: "lax",
+    });
   } catch (err) {
     if (err instanceof AxiosError) {
       if (!err?.response) {
@@ -53,6 +57,4 @@ export const login = async ({
       }
     }
   }
-
-  return;
 };

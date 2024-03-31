@@ -4,7 +4,6 @@ import { TextInput, CheckBox } from "../components/FormikElements";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { register, login } from "../api/auth";
-import Cookies from "js-cookie";
 
 const AuthPage = () => {
   const navigate = useNavigate();
@@ -60,11 +59,7 @@ const AuthPage = () => {
         validationSchema={isLogin ? loginSchema : registerSchema}
         onSubmit={async (values, { setSubmitting }) => {
           if (isLogin) {
-            const data = await login(values);
-            console.log(data);
-            Cookies.set("finder_user", JSON.stringify(data), {
-              sameSite: "lax",
-            });
+            await login(values);
           } else {
             await register(values);
           }

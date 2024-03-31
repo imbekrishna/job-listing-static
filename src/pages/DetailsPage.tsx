@@ -52,7 +52,11 @@ const DetailsPage = () => {
           </p>
         </div>
         <div className="flex flex-col items-center gap-2">
-          <img src={job.logo} alt="" className="aspect-square w-14" />
+          <img
+            src={job.logo}
+            alt=""
+            className="aspect-square h-min w-14 rounded-full"
+          />
           <p>{job.company}</p>
         </div>
       </div>
@@ -106,7 +110,10 @@ const DetailsPage = () => {
       {isRecruiterOrAdmin && isSameAuthor && (
         <div className="flex items-center justify-between gap-4">
           <button
-            onClick={() => deleteJobById(job.id)}
+            onClick={() => {
+              deleteJobById(job.id);
+              navigate("/");
+            }}
             className="btn danger flex-1"
           >
             Delete Job

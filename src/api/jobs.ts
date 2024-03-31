@@ -11,7 +11,7 @@ if (cookies) {
   axios.defaults.headers.common["Authorization"] = `Bearer ${data.accessToken}`;
 }
 
-// TODO: Update error messages
+// TODO: Refactor to user Axios Interceptors
 
 export const addNewJob = async (jobDetails: CreateJob) => {
   try {
@@ -22,11 +22,13 @@ export const addNewJob = async (jobDetails: CreateJob) => {
       if (!err?.response) {
         toast.error("No Server Response");
       } else if (err.response?.status === 400) {
-        toast.error("Invalid Username or Password");
+        toast.error("Bad Request");
+      } else if (err.response?.status === 403) {
+        toast.error("Action not allowed");
       } else if (err.response?.status === 401) {
         toast.error("Unauthorized");
       } else {
-        toast.error("Login Failed");
+        toast.error("Something went wrong");
       }
     }
   }
@@ -41,11 +43,13 @@ export const getAllJobs = async () => {
       if (!err?.response) {
         toast.error("No Server Response");
       } else if (err.response?.status === 400) {
-        toast.error("Invalid Username or Password");
+        toast.error("Bad Request");
+      } else if (err.response?.status === 403) {
+        toast.error("Action not allowed");
       } else if (err.response?.status === 401) {
         toast.error("Unauthorized");
       } else {
-        toast.error("Login Failed");
+        toast.error("Something went wrong");
       }
     }
   }
@@ -60,11 +64,13 @@ export const updateJob = async (jobId: string, jobDetails: CreateJob) => {
       if (!err?.response) {
         toast.error("No Server Response");
       } else if (err.response?.status === 400) {
-        toast.error("Invalid Username or Password");
+        toast.error("Bad Request");
+      } else if (err.response?.status === 403) {
+        toast.error("Action not allowed");
       } else if (err.response?.status === 401) {
         toast.error("Unauthorized");
       } else {
-        toast.error("Login Failed");
+        toast.error("Something went wrong");
       }
     }
   }
@@ -79,11 +85,13 @@ export const getJobById = async (jobId: string) => {
       if (!err?.response) {
         toast.error("No Server Response");
       } else if (err.response?.status === 400) {
-        toast.error("Invalid Username or Password");
+        toast.error("Bad Request");
+      } else if (err.response?.status === 403) {
+        toast.error("Action not allowed");
       } else if (err.response?.status === 401) {
         toast.error("Unauthorized");
       } else {
-        toast.error("Login Failed");
+        toast.error("Something went wrong");
       }
     }
   }
@@ -91,18 +99,20 @@ export const getJobById = async (jobId: string) => {
 
 export const deleteJobById = async (jobId: string) => {
   try {
-    const res = await axios.delete(`${url}/jobs/${jobId}`);
-    return res.data;
+    await axios.delete(`${url}/jobs/${jobId}`);
+    toast.success("Job deleted");
   } catch (err) {
     if (err instanceof AxiosError) {
       if (!err?.response) {
         toast.error("No Server Response");
       } else if (err.response?.status === 400) {
-        toast.error("Invalid Username or Password");
+        toast.error("Bad Request");
+      } else if (err.response?.status === 403) {
+        toast.error("Action not allowed");
       } else if (err.response?.status === 401) {
         toast.error("Unauthorized");
       } else {
-        toast.error("Login Failed");
+        toast.error("Something went wrong");
       }
     }
   }

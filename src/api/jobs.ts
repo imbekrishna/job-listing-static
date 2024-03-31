@@ -5,9 +5,11 @@ import Cookies from "js-cookie";
 
 const url = "http://localhost:3000";
 const cookies = Cookies.get("finder_user");
-const data = JSON.parse(cookies ?? "");
 
-axios.defaults.headers.common["Authorization"] = `Bearer ${data.accessToken}`;
+if (cookies) {
+  const data = JSON.parse(cookies || "");
+  axios.defaults.headers.common["Authorization"] = `Bearer ${data.accessToken}`;
+}
 
 // TODO: Update error messages
 
@@ -71,6 +73,25 @@ export const updateJob = async (jobId: string, jobDetails: CreateJob) => {
 export const getJobById = async (jobId: string) => {
   try {
     const res = await axios.get(`${url}/jobs/${jobId}`);
+    return res.data;
+  } catch (err) {
+    if (err instanceof AxiosError) {
+      if (!err?.response) {
+        toast.error("No Server Response");
+      } else if (err.response?.status === 400) {
+        toast.error("Invalid Username or Password");
+      } else if (err.response?.status === 401) {
+        toast.error("Unauthorized");
+      } else {
+        toast.error("Login Failed");
+      }
+    }
+  }
+};
+
+export const deleteJobById = async (jobId: string) => {
+  try {
+    const res = await axios.delete(`${url}/jobs/${jobId}`);
     return res.data;
   } catch (err) {
     if (err instanceof AxiosError) {

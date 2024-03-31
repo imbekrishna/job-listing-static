@@ -1,12 +1,8 @@
 import { Job } from "../utils/types";
 import { Link, useSearchParams } from "react-router-dom";
 import { memo } from "react";
-import { getTagLabel } from "../utils/helpers";
+import { getTagLabel, parseTimeString } from "../utils/helpers";
 import { CONTRACT, LANGUAGES, LEVEL, SKILLS } from "../utils/constants";
-import dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime";
-
-dayjs.extend(relativeTime);
 
 function JobCard({ job }: { job: Job }) {
   const [params, setSearchParams] = useSearchParams();
@@ -25,8 +21,6 @@ function JobCard({ job }: { job: Job }) {
       return prevParams;
     });
   };
-
-  const parseTime = (timeString: string) => dayjs(timeString).fromNow(true);
 
   return (
     <div
@@ -53,7 +47,7 @@ function JobCard({ job }: { job: Job }) {
         </div>
         <p className="text-lg font-bold">{job.position}</p>
         <div className="flex items-center gap-3 font-bold text-dGCyan">
-          <span>{parseTime(job.postedAt)}</span>
+          <span className="capitalize">{parseTimeString(job.postedAt)}</span>
           {/* TODO: Refactor the separator */}
           <span className="h-1 w-1 rounded-full bg-dGCyan"></span>
           <span> {getTagLabel(CONTRACT, job.contract)}</span>

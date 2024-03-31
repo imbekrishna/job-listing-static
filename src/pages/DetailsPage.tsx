@@ -1,21 +1,24 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { CONTRACT, LANGUAGES, LEVEL, SKILLS } from "../utils/constants";
-import { getTagLabel } from "../utils/helpers";
-import { getJobById } from "../api/jobs";
+import { getTagLabel, parseTimeString } from "../utils/helpers";
+import { deleteJobById, getJobById } from "../api/jobs";
 import { useCallback, useEffect, useState } from "react";
 import { Job } from "../utils/types";
+import useActiveUser from "../hooks/useActiveUser";
 
 const DetailsPage = () => {
   const navigate = useNavigate();
+  const { user, isRecruiterOrAdmin } = useActiveUser();
   const { jobId } = useParams();
   const [job, setJob] = useState<Job | undefined>();
   const [loading, setLoading] = useState(false);
+
+  const isSameAuthor = user?.id === job?.refUserId;
 
   const fetchJobById = useCallback(async (id: string) => {
     setLoading(true);
     const data = await getJobById(id);
     setJob(data);
-    console.log(data);
     setLoading(false);
   }, []);
 
@@ -33,7 +36,9 @@ const DetailsPage = () => {
   return (
     <div className="my-8 flex max-w-screen-md flex-col gap-y-3 lg:p-8 lg:shadow-custom ">
       <div className="flex items-center gap-3 text-dGCyan">
-        <span>{job.postedAt}</span>
+        <span className="capitalize">
+          {parseTimeString(job.postedAt, false)}
+        </span>
         <span className="h-1 w-1 rounded-full bg-dGCyan"></span>
         <span> {getTagLabel(CONTRACT, job.contract)}</span>
         <span className="h-1 w-1 rounded-full bg-dGCyan"></span>
@@ -43,7 +48,7 @@ const DetailsPage = () => {
         <div className="flex flex-col gap-2">
           <h1 className="text-3xl font-semibold">{job.position}</h1>
           <p className="text-lg text-primary">
-            {job.role} | {job.level}
+            {job.role} | {getTagLabel(LEVEL, job.level)}
           </p>
         </div>
         <div className="flex flex-col items-center gap-2">
@@ -98,9 +103,19 @@ const DetailsPage = () => {
         </p>
       </div>
       <button className="btn primary mt-4">Apply Now</button>
-      <Link to="/edit" state={job} className="btn secondary">
-        Edit Job
-      </Link>
+      {isRecruiterOrAdmin && isSameAuthor && (
+        <div className="flex items-center justify-between gap-4">
+          <button
+            onClick={() => deleteJobById(job.id)}
+            className="btn danger flex-1"
+          >
+            Delete Job
+          </button>
+          <Link to="/edit" state={job} className="btn secondary flex-1">
+            Edit Job
+          </Link>
+        </div>
+      )}
     </div>
   );
 };

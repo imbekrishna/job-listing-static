@@ -5,7 +5,7 @@ import logoutIcon from "../assets/images/logout.svg";
 import useActiveUser from "../hooks/useActiveUser";
 
 const Layout = () => {
-  const user = useActiveUser();
+  const { user, isRecruiterOrAdmin, logout } = useActiveUser();
   return (
     <div className="min-h-screen">
       <div className="bg-primary">
@@ -28,15 +28,17 @@ const Layout = () => {
             </Link>
           ) : (
             <div className="flex items-center gap-x-4">
-              <Link to="/new" className="btn light ml-auto">
-                Add new
-              </Link>
+              {isRecruiterOrAdmin && (
+                <Link to="/new" className="btn light ml-auto">
+                  Add new
+                </Link>
+              )}
               <img
                 src="https://picsum.photos/100"
                 className="aspect-square h-min w-12 rounded-md"
                 alt=""
               />
-              <button onClick={user.logout}>
+              <button onClick={logout}>
                 <img className="w-12" src={logoutIcon} alt="" />
               </button>
             </div>

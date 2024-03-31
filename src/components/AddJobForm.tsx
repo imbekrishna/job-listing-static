@@ -7,13 +7,18 @@ import CustomMultiSelect from "./MultiSelect";
 import { TextInput, TextArea } from "./FormikElements";
 import useAuthGuard from "../hooks/useAuthGuard";
 import { addNewJob, updateJob } from "../api/jobs";
+import useActiveUser from "../hooks/useActiveUser";
 
 const AddJobForm = () => {
   useAuthGuard();
+  const { isRecruiterOrAdmin } = useActiveUser();
+
   const navigate = useNavigate();
   const { state } = useLocation();
   const btnText = state ? "Update" : "Submit";
   const titleText = state ? "Edit job" : "Add new";
+
+  if (!isRecruiterOrAdmin) navigate("/");
 
   return (
     <div className="my-8 w-full max-w-screen-md">
